@@ -1,0 +1,96 @@
+/* dtslides Academic-inspired utilities and layout refinements.
+   Reference: https://data-wise.github.io/dtslides/example-academic.html */
+
+/* Font sizing utilities follow the reference deck. */
+.largest { font-size: 1.20em !important; }
+.larger { font-size: 1.50em !important; }
+.large { font-size: 1.25em !important; }
+.small { font-size: 0.80em !important; }
+.smaller { font-size: 0.64em !important; }
+.smallest { font-size: 0.512em !important; }
+.small-slide { font-size: 80% !important; }
+.tiny-slide { font-size: 40% !important; }
+.scrollable { overflow-y: auto !important; }
+
+/* Academic emphasis utilities adapted to our palette. */
+.alert, .warning { color: #FF5368 !important; font-weight: 750; }
+.fg, .highlight { color: #F5DB4D !important; font-weight: 750; }
+.note { color: #45B5F5 !important; }
+.badge {
+  display: inline-block;
+  padding: 0.10em 0.38em;
+  border: 1px solid rgba(245,219,77,.48);
+  background: rgba(245,219,77,.12);
+  color: #F5DB4D;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .62em;
+  letter-spacing: .04em;
+}
+
+/* Academic two-column rhythm: content first, illustration second. */
+.academic-columns {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  gap: 1.15em;
+  align-items: center;
+}
+.academic-copy { max-width: 900px; }
+.academic-figure {
+  min-height: 320px;
+  border: 1px dashed rgba(200,209,220,.32);
+  background:
+    linear-gradient(135deg, rgba(69,181,245,.08), transparent 36%),
+    linear-gradient(315deg, rgba(245,219,77,.08), transparent 42%),
+    rgba(16,27,41,.72);
+  position: relative;
+}
+.academic-figure::before {
+  content: "FIGURE / DIAGRAM";
+  position: absolute;
+  top: 18px;
+  left: 20px;
+  color: #F5DB4D;
+  font: 700 .30em/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .12em;
+}
+.academic-figure::after {
+  content: "reserved for sourced image or custom SVG";
+  position: absolute;
+  bottom: 18px;
+  left: 20px;
+  color: #8794A5;
+  font: 400 .28em/1.2 "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* More textbook-like tables and formula blocks. */
+.reveal table {
+  border-collapse: collapse;
+  background: rgba(16,27,41,.52);
+}
+.reveal table th {
+  color: #F4F7FA;
+  border-bottom: 1px solid rgba(245,219,77,.44);
+}
+.reveal table td,
+.reveal table th {
+  padding: .34em .48em;
+}
+.reveal blockquote {
+  width: auto;
+  margin: 1em 0;
+  padding: .7em 1em;
+  border-left: 4px solid #0075C9;
+  background: rgba(16,27,41,.50);
+  box-shadow: none;
+}
+
+/* Give backup slides the compact academic density from the reference theme. */
+.backup-title ~ section,
+section.backup-slide {
+  font-size: 82%;
+}
+
+@media (max-width: 900px) {
+  .academic-columns { grid-template-columns: 1fr; }
+  .academic-figure { min-height: 190px; }
+}
