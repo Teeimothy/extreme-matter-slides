@@ -1,2 +1,26 @@
 <script src="components/impedance-demo.js"></script>
 <script src="components/pulse-demo.js"></script>
+<script>
+(function () {
+  function addSchoolBrand() {
+    document.querySelectorAll('.reveal .slides section').forEach(function (slide) {
+      if (slide.classList.contains('title-slide')) return;
+      if (slide.querySelector('.global-school-brand')) return;
+      const brand = document.createElement('div');
+      brand.className = 'global-school-brand';
+      brand.innerHTML = `
+        <img src="assets/images/fox-placeholder.png" alt="School logo placeholder">
+        <span>[School Name]</span>
+      `;
+      slide.appendChild(brand);
+    });
+  }
+  document.addEventListener('DOMContentLoaded', addSchoolBrand);
+  if (window.Reveal && typeof window.Reveal.on === 'function') {
+    window.Reveal.on('ready', addSchoolBrand);
+    window.Reveal.on('slidechanged', addSchoolBrand);
+  } else {
+    window.addEventListener('load', addSchoolBrand);
+  }
+})();
+</script>
