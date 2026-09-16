@@ -1,3 +1,134 @@
+<style>
+/* Layout v2: cleaner Quarto/revealjs editorial composition. */
+.chain-wrap {
+  position: relative;
+  width: 68%;
+  grid-template-columns: .86fr .22fr .86fr .22fr .86fr .22fr .86fr !important;
+  grid-auto-rows: minmax(72px, auto) !important;
+  gap: .34em .22em !important;
+  margin-top: 1.05em !important;
+}
+.chain-node {
+  min-height: 72px !important;
+  padding: .48em .46em !important;
+  border-radius: 6px !important;
+  background: linear-gradient(180deg, rgba(255,255,255,.04), transparent 42%), rgba(9,18,29,.88) !important;
+  border-color: rgba(200,209,220,.20) !important;
+  box-shadow: 0 10px 22px rgba(0,0,0,.13) !important;
+}
+.chain-node::before {
+  height: 3px !important;
+  width: 38px !important;
+}
+.chain-node b { font-size: .42em !important; line-height: 1.04 !important; }
+.chain-node small { font-size: .25em !important; line-height: 1.16 !important; margin-top: .48em !important; }
+.chain-arrow {
+  overflow: hidden;
+  color: transparent !important;
+  height: 2px;
+  background: linear-gradient(90deg, rgba(135,148,165,.24), rgba(245,219,77,.75), rgba(135,148,165,.38));
+}
+.chain-arrow::after {
+  content: "";
+  position: absolute;
+  right: -1px;
+  top: 50%;
+  width: 7px;
+  height: 7px;
+  border-top: 2px solid rgba(200,209,220,.75);
+  border-right: 2px solid rgba(200,209,220,.75);
+  transform: translateY(-50%) rotate(45deg);
+}
+.scale-strip { width: 68%; font-size: .34em !important; }
+.layout-figure-slot {
+  position: absolute;
+  right: 76px;
+  bottom: 82px;
+  width: 350px;
+  min-height: 210px;
+  padding: .72em .82em;
+  border: 1px dashed rgba(200,209,220,.34);
+  background: linear-gradient(135deg, rgba(69,181,245,.10), transparent 32%), linear-gradient(315deg, rgba(245,219,77,.08), transparent 38%), rgba(16,27,41,.70);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,.018), 0 14px 32px rgba(0,0,0,.16);
+  z-index: 2;
+}
+.layout-figure-slot::after {
+  content: "";
+  position: absolute;
+  inset: 18px;
+  border: 1px solid rgba(135,148,165,.18);
+  background-image: linear-gradient(rgba(135,148,165,.10) 1px, transparent 1px), linear-gradient(90deg, rgba(135,148,165,.10) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: .45;
+  pointer-events: none;
+}
+.layout-figure-slot span {
+  display: block;
+  position: relative;
+  z-index: 1;
+  font: 700 .28em/1 "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .12em;
+  color: var(--yellow);
+  text-transform: uppercase;
+}
+.layout-figure-slot b {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-top: .55em;
+  color: var(--text);
+  font-size: .46em;
+  line-height: 1.12;
+}
+.layout-figure-slot small {
+  display: block;
+  position: relative;
+  z-index: 1;
+  margin-top: .8em;
+  color: var(--text-muted);
+  font-size: .27em;
+  line-height: 1.22;
+}
+.response-grid { width: 68%; }
+.statement-slide .layout-figure-slot { min-height: 250px; }
+.regime-ladder { width: 70%; }
+.diagram-slide .layout-figure-slot.regime-slot { min-height: 165px; bottom: 112px; }
+.mini-figure-slot {
+  margin-top: .86em;
+  min-height: 104px;
+  padding: .58em .66em;
+  border: 1px dashed rgba(200,209,220,.30);
+  background: rgba(16,27,41,.56);
+}
+.mini-figure-slot span {
+  display:block; font: 700 .26em/1 "IBM Plex Mono", ui-monospace, monospace; letter-spacing:.12em; color:var(--yellow);
+}
+.mini-figure-slot b { display:block; margin-top:.5em; color:var(--text); font-size:.38em; }
+.reveal pre, .reveal code { white-space: pre-wrap; }
+.reveal .math.display, .reveal mjx-container[display="true"] {
+  margin: .58em 0 !important;
+  padding: .32em .52em !important;
+  border-left: 3px solid var(--blue-light);
+  background: rgba(16,27,41,.78);
+  border-radius: 8px;
+  color: var(--text);
+}
+@media (max-width: 900px) {
+  .chain-wrap, .scale-strip, .response-grid, .regime-ladder { width: 100%; }
+  .layout-figure-slot { position: relative; right: auto; bottom: auto; width: auto; min-height: 140px; margin-top: .7em; }
+}
+</style>
+<script>
+window.MathJax = window.MathJax || {
+  tex: {
+    inlineMath: [['$', '$'], ['\\(', '\\)']],
+    displayMath: [['$$', '$$'], ['\\[', '\\]']],
+    processEscapes: true
+  },
+  svg: { fontCache: 'global' }
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js" async></script>
 <script src="components/impedance-demo.js"></script>
 <script src="components/pulse-demo.js"></script>
 <script>
@@ -8,19 +139,87 @@
       if (slide.querySelector('.global-school-brand')) return;
       const brand = document.createElement('div');
       brand.className = 'global-school-brand';
-      brand.innerHTML = `
-        <img src="assets/images/fox-placeholder.png" alt="School logo placeholder">
-        <span>[School Name]</span>
-      `;
+      brand.innerHTML = '<img src="assets/images/fox-placeholder.png" alt="School logo placeholder"><span>[School Name]</span>';
       slide.appendChild(brand);
     });
   }
-  document.addEventListener('DOMContentLoaded', addSchoolBrand);
+
+  function addFigureSlots() {
+    const chain = document.querySelector('.chain-wrap');
+    if (chain && !chain.parentElement.querySelector('.framework-slot')) {
+      const slot = document.createElement('div');
+      slot.className = 'layout-figure-slot framework-slot';
+      slot.innerHTML = '<span>ILLUSTRATION SLOT</span><b>energy coupling schematic</b><small>Later: custom SVG showing wave entering layered material</small>';
+      chain.parentElement.appendChild(slot);
+    }
+    const responseGrid = document.querySelector('.statement-slide .response-grid');
+    if (responseGrid && !responseGrid.parentElement.querySelector('.response-slot')) {
+      const slot = document.createElement('div');
+      slot.className = 'layout-figure-slot response-slot';
+      slot.innerHTML = '<span>ILLUSTRATION SLOT</span><b>microstructure under shock</b><small>Later: defects / phase boundary / crack nucleation</small>';
+      responseGrid.parentElement.appendChild(slot);
+    }
+    const regime = document.querySelector('.regime-ladder');
+    if (regime && !regime.parentElement.querySelector('.regime-slot')) {
+      const slot = document.createElement('div');
+      slot.className = 'layout-figure-slot regime-slot';
+      slot.innerHTML = '<span>ILLUSTRATION SLOT</span><b>simulation frame / impact-regime visual</b>';
+      regime.parentElement.appendChild(slot);
+    }
+    const shockText = document.querySelector('.shock-text');
+    if (shockText && !shockText.querySelector('.mini-figure-slot')) {
+      const mini = document.createElement('div');
+      mini.className = 'mini-figure-slot';
+      mini.innerHTML = '<span>IMAGE SLOT</span><b>shock front / dynamic compression</b>';
+      shockText.appendChild(mini);
+    }
+  }
+
+  function repairEscapedKickers() {
+    document.querySelectorAll('p, pre, code').forEach(function (el) {
+      const text = (el.textContent || '').trim();
+      const match = text.match(/^<div class="kicker">([^<]+)<\/div>$/);
+      if (match) {
+        const div = document.createElement('div');
+        div.className = 'kicker';
+        div.textContent = match[1];
+        el.replaceWith(div);
+      }
+    });
+  }
+
+  function repairDisplayMath() {
+    document.querySelectorAll('p, pre, code').forEach(function (el) {
+      const text = (el.textContent || '').trim();
+      const m1 = text.match(/^\\\[([\s\S]+)\\\]$/);
+      const m2 = text.match(/^\$\$([\s\S]+)\$\$$/);
+      const body = m1 ? m1[1] : (m2 ? m2[1] : null);
+      if (body) {
+        const div = document.createElement('div');
+        div.className = 'math display';
+        div.textContent = '\\[' + body.trim() + '\\]';
+        el.replaceWith(div);
+      }
+    });
+  }
+
+  function refresh() {
+    addSchoolBrand();
+    addFigureSlots();
+    repairEscapedKickers();
+    repairDisplayMath();
+    if (window.MathJax && window.MathJax.typesetPromise) {
+      window.MathJax.typesetPromise().catch(function () {});
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', refresh);
+  window.addEventListener('load', refresh);
+  document.addEventListener('slidechanged', refresh);
+  document.addEventListener('fragmentshown', refresh);
   if (window.Reveal && typeof window.Reveal.on === 'function') {
-    window.Reveal.on('ready', addSchoolBrand);
-    window.Reveal.on('slidechanged', addSchoolBrand);
-  } else {
-    window.addEventListener('load', addSchoolBrand);
+    window.Reveal.on('ready', refresh);
+    window.Reveal.on('slidechanged', refresh);
   }
 })();
 </script>
