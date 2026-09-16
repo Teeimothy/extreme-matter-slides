@@ -1,0 +1,114 @@
+/*-- scss:rules --*/
+:root {
+  --paper: #F4F1E8;
+  --ink: #0D1824;
+}
+
+/* Light/dark split: a bright editorial header field over the core dark physics canvas. */
+.reveal .slides section:not(.title-slide) {
+  background: linear-gradient(180deg, var(--paper) 0 25%, var(--bg) 25% 100%) !important;
+}
+
+.reveal .slides section:not(.title-slide) > h1,
+.reveal .slides section:not(.title-slide) > h2 {
+  color: var(--ink) !important;
+  position: relative;
+  z-index: 3;
+  max-width: 1120px;
+  padding-right: 250px;
+}
+
+.reveal .slides section:not(.title-slide) > h2::before {
+  background: var(--red) !important;
+}
+
+.reveal .slides section:not(.title-slide)::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: calc(25% - 4px);
+  height: 8px;
+  background: linear-gradient(90deg, var(--blue) 0 28%, var(--yellow) 28% 43%, var(--red) 43% 51%, transparent 51% 100%);
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Title slide: stronger asymmetric constructivist split. */
+.reveal .slides section.title-slide {
+  background: linear-gradient(105deg, var(--bg) 0 66%, var(--paper) 66% 100%) !important;
+}
+
+.title-slide .school-card {
+  background: rgba(255,255,255,.76);
+  border-color: rgba(13,24,36,.15);
+  box-shadow: 0 20px 46px rgba(0,0,0,.14);
+}
+.title-slide .school-name { color: var(--ink); }
+.title-slide .school-kicker,
+.title-slide .school-note { color: rgba(13,24,36,.62); }
+
+/* School lockup on every content slide. */
+.global-school-brand {
+  position: absolute;
+  top: 34px;
+  right: 72px;
+  z-index: 10;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  height: 54px;
+  padding: 5px 12px 5px 7px;
+  border: 1px solid rgba(13,24,36,.12);
+  background: rgba(255,255,255,.78);
+  color: var(--ink);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .34em;
+  letter-spacing: .055em;
+  box-shadow: 0 10px 26px rgba(13,24,36,.08);
+  backdrop-filter: blur(6px);
+}
+.global-school-brand::before {
+  content: "";
+  position: absolute;
+  left: -5px;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--red);
+}
+.global-school-brand img {
+  width: 42px;
+  height: 42px;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.global-school-brand span {
+  white-space: nowrap;
+  font-weight: 700;
+}
+
+/* Force display math to read as typeset content, not code. */
+.reveal .math.display,
+.reveal mjx-container[display="true"] {
+  margin: .7em 0 !important;
+  padding: .36em .55em;
+  border-left: 3px solid var(--blue-light);
+  background: rgba(16,27,41,.70);
+  border-radius: 8px;
+  color: var(--text);
+}
+
+@media (max-width: 900px) {
+  .global-school-brand {
+    right: 28px;
+    top: 24px;
+    transform: scale(.86);
+    transform-origin: top right;
+  }
+  .reveal .slides section:not(.title-slide) > h1,
+  .reveal .slides section:not(.title-slide) > h2 {
+    padding-right: 0;
+    max-width: 78%;
+  }
+}
