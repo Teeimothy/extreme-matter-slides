@@ -1,0 +1,370 @@
+---
+title: "Title TBD"
+subtitle: "Extreme Matter: 从能量释放到材料失效"
+author: ""
+date: ""
+lang: zh-CN
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    background-transition: fade
+    slide-number: c/t
+    controls: true
+    progress: true
+    center: false
+    width: 1600
+    height: 900
+    margin: 0.04
+    chalkboard: true
+    preview-links: false
+include-after-body:
+  - components/scripts.html
+execute:
+  echo: false
+---
+
+## {background-color="#08111D" .title-slide}
+
+<div class="kicker">EXTREME MATTER / 15 MIN</div>
+
+# Title TBD
+
+<div class="subtitle-line">极端条件下的毁伤物理：能量、激波、路径与材料响应</div>
+
+<div class="hero-equation">
+  <span>ENERGY</span><span>→</span><span>WAVE</span><span>→</span><span>MATERIAL</span><span>→</span><span>FAILURE</span>
+</div>
+
+::: notes
+开场不要从“武器”讲起，而从问题讲起：能量释放之后，物质究竟经历了什么？
+
+[Sources]
+- Report.md Executive Summary: energy-coupling chain, L5-L21.
+:::
+
+## 能量去了哪里？ {.statement-slide}
+
+<div class="big-question">能量释放 ≠ 有效毁伤</div>
+
+<div class="one-line fragment">关键不是“总量”，而是能量如何进入材料、持续多久、走过哪条路径。</div>
+
+<div class="scalar-row fragment">
+  <span class="pill blue">Energy</span>
+  <span class="pill cyan">Pressure</span>
+  <span class="pill yellow">Impulse</span>
+  <span class="pill red">Failure</span>
+</div>
+
+::: notes
+本页建立第一个反直觉点：同样的总能量，不代表相同的材料响应。引出下一页的整体链条。
+
+[Sources]
+- Report.md Executive Summary: energy alone is a poor damage metric, L35-L35.
+:::
+
+## 从能量到失效：一条跨尺度链 {.diagram-slide}
+
+<div class="chain-wrap">
+  <div class="chain-node fragment" data-fragment-index="1"><b>Stored energy</b><small>chemical / kinetic / EM</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="2">→</div>
+  <div class="chain-node fragment" data-fragment-index="2"><b>Rapid release</b><small>ns–μs input</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="3">→</div>
+  <div class="chain-node fragment active-yellow" data-fragment-index="3"><b>Shock / flow</b><small>wave propagation</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="4">→</div>
+  <div class="chain-node fragment active-yellow" data-fragment-index="4"><b>Coupling</b><small>interface + impedance</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="5">→</div>
+  <div class="chain-node fragment" data-fragment-index="5"><b>Extreme state</b><small>P, T, shear</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="6">→</div>
+  <div class="chain-node fragment" data-fragment-index="6"><b>Response</b><small>defects / phase / cracks</small></div>
+  <div class="chain-arrow fragment" data-fragment-index="7">→</div>
+  <div class="chain-node fragment active-red" data-fragment-index="7"><b>Failure</b><small>spall / fracture</small></div>
+</div>
+
+<div class="scale-strip fragment" data-fragment-index="8">
+  <span>fs–ps / Å–nm</span><span>ps–μs / nm–mm</span><span>μs–ms / mm–m</span>
+</div>
+
+::: notes
+此页是全场骨架。后面每一页都只是在解释这条链上的某个环节。
+
+[Sources]
+- Report.md Executive Summary: multiscale chain and scale-crossing difficulty, L5-L25.
+:::
+
+## 交互 1：波遇到材料界面 {.interactive-slide}
+
+<div id="impedance-demo" class="interactive-mount"></div>
+
+::: notes
+只讲“线性声学类比”。不要把它说成真实强激波模型。重点是：耦合取决于界面与材料属性，不是所有能量都进入目标材料。
+
+[Sources]
+- Conceptual model: normal-incidence acoustic impedance reflection/transmission. See backup derivation.
+:::
+
+## 激波制造极端状态 {.diagram-slide}
+
+<div class="shock-layout">
+  <div class="shock-visual" aria-label="Schematic shock front">
+    <div class="particles relaxed"></div>
+    <div class="shock-front"></div>
+    <div class="particles compressed"></div>
+  </div>
+  <div class="shock-text">
+    <div class="kicker">SHOCK / STATE</div>
+    <h3>激波不是“普通压力”，而是一个快速改变状态的热力学路径。</h3>
+    <p class="muted">它同时改变压力、密度、温度、剪切状态与缺陷演化。</p>
+  </div>
+</div>
+
+::: notes
+这里不要推导 Rankine–Hugoniot，只解释“冲击压缩是一条路径”。公式放 backup。
+
+[Sources]
+- Report.md Detonation and Shock Physics: Hugoniot is not equilibrium path, L243-L272.
+:::
+
+## 材料不是被动挨打 {.statement-slide}
+
+<div class="response-grid">
+  <div class="response-card fragment"><span>01</span><b>Plasticity</b><small>位错 / 孪晶 / 剪切</small></div>
+  <div class="response-card fragment"><span>02</span><b>Phase change</b><small>相变 / 熔化 / 非晶化</small></div>
+  <div class="response-card fragment"><span>03</span><b>Fracture</b><small>孔洞 / 裂纹 / 层裂</small></div>
+</div>
+
+<div class="statement fragment">Strength does not disappear.</div>
+
+::: notes
+强调“高压下可以近似流体化”不等于强度、偏应力、缺陷机制不重要。
+
+[Sources]
+- Report.md Executive Summary: material strength does not simply disappear, L29-L29.
+- Report.md High-Strain-Rate Matter: plasticity/phase/fracture coupling, L317-L323.
+:::
+
+## 同样状态，不同路径 {.diagram-slide}
+
+<div class="pt-layout">
+  <svg viewBox="0 0 720 440" class="pt-svg" role="img" aria-label="Pressure temperature pathway diagram">
+    <line x1="95" y1="365" x2="650" y2="365" class="axis"/>
+    <line x1="95" y1="365" x2="95" y2="55" class="axis"/>
+    <text x="640" y="398" class="axis-label">P</text>
+    <text x="55" y="66" class="axis-label">T</text>
+    <path class="path-blue fragment" data-fragment-index="1" d="M 125 335 C 250 330, 320 235, 450 190 S 590 142, 610 128"/>
+    <path class="path-cyan fragment" data-fragment-index="2" d="M 125 335 C 185 220, 300 270, 410 130 S 555 90, 610 128"/>
+    <circle cx="610" cy="128" r="9" class="final-dot fragment" data-fragment-index="3"/>
+    <text x="468" y="112" class="final-text fragment" data-fragment-index="3">same nominal P,T</text>
+    <text x="415" y="185" class="path-note yellow fragment" data-fragment-index="4">different defects</text>
+    <text x="305" y="116" class="path-note cyan fragment" data-fragment-index="4">different phase path</text>
+    <text x="440" y="250" class="path-note red fragment" data-fragment-index="5">different damage</text>
+  </svg>
+  <div class="pt-copy">
+    <div class="kicker">PATHWAY-RESOLVED PHYSICS</div>
+    <h3>材料会“记住”加载路径。</h3>
+    <p class="muted">相同的名义压力和温度，不保证相同的微结构、相变或失效方式。</p>
+  </div>
+</div>
+
+::: notes
+这是全场第二个核心点：从 scalar state 转向 pathway-resolved physics。
+
+[Sources]
+- Report.md Executive Summary: frontier shifting toward pathway-resolved physics, L27-L29.
+- Report.md final framing of microscopic pathway, L41-L45.
+:::
+
+## 超高速冲击：不是一道边界 {.diagram-slide}
+
+<div class="regime-ladder">
+  <div class="regime fragment"><span>elastic / plastic</span><b>strength dominated</b></div>
+  <div class="regime fragment"><span>strong shock</span><b>compression + strength</b></div>
+  <div class="regime fragment"><span>phase transition</span><b>solid state changes</b></div>
+  <div class="regime fragment"><span>melting</span><b>multiphase flow</b></div>
+  <div class="regime red fragment"><span>vapor / plasma</span><b>extreme states</b></div>
+</div>
+
+<div class="one-line fragment">The transition is continuous, not a switch.</div>
+
+::: notes
+不讲弹道和武器系统，只讲材料响应机制如何随着冲击严重程度连续改变。
+
+[Sources]
+- Report.md Executive Summary: hypervelocity impact is intrinsically multiphysics, L33-L33.
+- Report.md Hypervelocity Impact section, L343-L379.
+:::
+
+## 交互 2：相同冲量，不同历史 {.interactive-slide}
+
+<div id="pulse-demo" class="interactive-mount"></div>
+
+::: notes
+现场提问：相同 impulse 是否意味着相同响应？答案是“不一定”。再引出材料响应依赖峰值、持续时间、应变率与路径。
+
+[Sources]
+- Report.md Energy-to-Damage Coupling: scalar quantities have different dimensions and causal roles, L393-L406.
+- Report.md conceptual damage functional, L408-L426.
+:::
+
+## 我们如何“看见”这个过程？ {.data-slide}
+
+<div class="frontier-grid">
+  <div class="image-slot"><span>EXPERIMENT IMAGE 01</span><b>Ultrafast XRD</b></div>
+  <div class="image-slot"><span>EXPERIMENT IMAGE 02</span><b>XAS / temperature</b></div>
+  <div class="image-slot"><span>EXPERIMENT IMAGE 03</span><b>Velocity / pressure</b></div>
+</div>
+
+<div class="frontier-copy">
+  <span class="pill cyan">diagnostics</span>
+  <span class="pill blue">simulation</span>
+  <span class="pill yellow">MLIP</span>
+  <span class="pill red">closure</span>
+</div>
+
+::: notes
+真实图暂留 3 个 slot，后续选定：XRD、XAS/thermometry、velocity/pressure sensing 或 radiography。
+
+[Sources]
+- Report.md Ultrafast Diagnostics and MLIPs, L520-L599.
+- Report.md Executive Summary: structure/temperature/velocity/pressure measured together, L37-L39.
+:::
+
+## Damage is a process, not a scalar. {.takeaway-slide}
+
+<div class="takeaway-main">不是问：压力有多大？</div>
+
+<div class="takeaway-sub fragment">而是问：</div>
+
+<div class="takeaway-question fragment">
+  Which microscopic pathway was selected,<br>
+  how fast did it evolve,<br>
+  and how did it become macroscopic failure?
+</div>
+
+::: notes
+收束全场。不要扩展新内容。
+
+[Sources]
+- Report.md core scientific problem, L41-L45.
+:::
+
+# Backup Slides {.backup-title}
+
+## Backup A — Rankine–Hugoniot jump conditions
+
+For a planar shock moving at speed \(U_s\):
+
+\[
+\rho_0 U_s = \rho_1(U_s-u_p)
+\]
+
+\[
+P_1-P_0=\rho_0 U_s u_p
+\]
+
+\[
+e_1-e_0=\frac{1}{2}(P_1+P_0)\left(\frac{1}{\rho_0}-\frac{1}{\rho_1}\right)
+\]
+
+<div class="backup-note">Conservation gives admissible end states; EOS and constitutive physics supply closure.</div>
+
+::: notes
+[Sources]
+- Report.md Conservation laws, L87-L107.
+:::
+
+## Backup B — Impedance reflection model
+
+For normal incidence in a linear acoustic analogy:
+
+\[
+R_p = \frac{Z_2-Z_1}{Z_2+Z_1}, \qquad Z=\rho c
+\]
+
+\[
+R_I \approx R_p^2, \qquad T_I \approx 1-R_I
+\]
+
+<div class="backup-note">This is a conceptual coupling model, not a nonlinear shock calculation.</div>
+
+## Backup C — Energy, pressure, impulse, momentum
+
+| Quantity | Main role | Why not sufficient |
+|---|---|---|
+| Energy | work / heat budget | ignores coupling and timescale |
+| Pressure | instantaneous compression | ignores duration |
+| Impulse | integrated momentum transfer | waveform matters |
+| Strain rate | mechanism selection | needs stress, temperature, history |
+| Plastic work | irreversible deformation | omits fracture and phase energy |
+
+::: notes
+[Sources]
+- Report.md Energy-to-Damage table, L393-L406.
+:::
+
+## Backup D — EOS is closure, not magic
+
+\[
+P(V,E)=P_{\rm ref}(V)+\frac{\Gamma(V)}{V}\left[E-E_{\rm ref}(V)\right]
+\]
+
+<div class="backup-note">Mie–Grüneisen forms are useful, but complex phases, chemistry and nonequilibrium states require richer closure.</div>
+
+::: notes
+[Sources]
+- Report.md Mie–Grüneisen closure, L117-L125.
+:::
+
+## Backup E — CJ / ZND conceptual frame
+
+<div class="znd-line">
+  <span>leading shock</span><span>→</span><span>reaction zone</span><span>→</span><span>reacted state</span>
+</div>
+
+\[
+\rho w=j,\qquad P+\rho w^2=\mathrm{const.},\qquad h+\frac{w^2}{2}=\mathrm{const.}
+\]
+
+<div class="backup-note">Conservation constrains the wave; chemistry, EOS, microstructure and multidimensional dynamics determine the path.</div>
+
+::: notes
+[Sources]
+- Report.md ZND-like formulation, L173-L213.
+:::
+
+## Backup F — Why high pressure is not strength-free
+
+\[
+\chi_s = \frac{Y}{P}
+\]
+
+<div class="backup-note">Small \(Y/P\) can justify pressure-dominated bulk motion, but deviatoric strength can still control localization, texture, phase pathway, release, spall and fragmentation.</div>
+
+::: notes
+[Sources]
+- Report.md high pressure vs hydrodynamic distinction, L127-L140.
+:::
+
+## Backup G — Multiscale closure
+
+<div class="closure-cycle">
+  <span>experiment</span><span>↔</span><span>DFT</span><span>↔</span><span>MD / MLIP</span><span>↔</span><span>mesoscale</span><span>↔</span><span>continuum</span><span>↔</span><span>experiment</span>
+</div>
+
+<div class="backup-note">The hard problem is not linking codes; it is preserving the right information while coarse-graining irreversible microscopic processes.</div>
+
+::: notes
+[Sources]
+- Report.md cyclic workflow, L448-L488.
+- Report.md closure problem, L490-L518.
+:::
+
+## Backup H — Reference and image checklist
+
+**Experiment image candidates to select later:**
+
+1. Ultrafast XRD / dynamic diffraction
+2. XAS + temperature constraint
+3. Velocity / pressure / radiography diagnostic
+
+**Citation rule:** speaker notes should include `[Sources]` blocks for every nontrivial claim and every sourced image.
