@@ -6,7 +6,7 @@ date: ""
 lang: zh-CN
 format:
   revealjs:
-    theme: [default, custom.scss]
+    theme: [default, custom.scss, overrides.scss]
     transition: fade
     background-transition: fade
     slide-number: c/t
@@ -18,6 +18,7 @@ format:
     margin: 0.04
     chalkboard: true
     preview-links: false
+    html-math-method: mathjax
 include-after-body:
   - components/scripts.html
 execute:
@@ -256,17 +257,17 @@ execute:
 
 For a planar shock moving at speed \(U_s\):
 
-\[
+$$
 \rho_0 U_s = \rho_1(U_s-u_p)
-\]
+$$
 
-\[
+$$
 P_1-P_0=\rho_0 U_s u_p
-\]
+$$
 
-\[
+$$
 e_1-e_0=\frac{1}{2}(P_1+P_0)\left(\frac{1}{\rho_0}-\frac{1}{\rho_1}\right)
-\]
+$$
 
 <div class="backup-note">Conservation gives admissible end states; EOS and constitutive physics supply closure.</div>
 
@@ -279,13 +280,13 @@ e_1-e_0=\frac{1}{2}(P_1+P_0)\left(\frac{1}{\rho_0}-\frac{1}{\rho_1}\right)
 
 For normal incidence in a linear acoustic analogy:
 
-\[
+$$
 R_p = \frac{Z_2-Z_1}{Z_2+Z_1}, \qquad Z=\rho c
-\]
+$$
 
-\[
+$$
 R_I \approx R_p^2, \qquad T_I \approx 1-R_I
-\]
+$$
 
 <div class="backup-note">This is a conceptual coupling model, not a nonlinear shock calculation.</div>
 
@@ -306,9 +307,9 @@ R_I \approx R_p^2, \qquad T_I \approx 1-R_I
 
 ## Backup D — EOS is closure, not magic
 
-\[
+$$
 P(V,E)=P_{\rm ref}(V)+\frac{\Gamma(V)}{V}\left[E-E_{\rm ref}(V)\right]
-\]
+$$
 
 <div class="backup-note">Mie–Grüneisen forms are useful, but complex phases, chemistry and nonequilibrium states require richer closure.</div>
 
@@ -323,9 +324,9 @@ P(V,E)=P_{\rm ref}(V)+\frac{\Gamma(V)}{V}\left[E-E_{\rm ref}(V)\right]
   <span>leading shock</span><span>→</span><span>reaction zone</span><span>→</span><span>reacted state</span>
 </div>
 
-\[
+$$
 \rho w=j,\qquad P+\rho w^2=\mathrm{const.},\qquad h+\frac{w^2}{2}=\mathrm{const.}
-\]
+$$
 
 <div class="backup-note">Conservation constrains the wave; chemistry, EOS, microstructure and multidimensional dynamics determine the path.</div>
 
@@ -336,9 +337,9 @@ P(V,E)=P_{\rm ref}(V)+\frac{\Gamma(V)}{V}\left[E-E_{\rm ref}(V)\right]
 
 ## Backup F — Why high pressure is not strength-free
 
-\[
+$$
 \chi_s = \frac{Y}{P}
-\]
+$$
 
 <div class="backup-note">Small \(Y/P\) can justify pressure-dominated bulk motion, but deviatoric strength can still control localization, texture, phase pathway, release, spall and fragmentation.</div>
 
