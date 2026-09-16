@@ -26,41 +26,43 @@ execute:
 
 ## {background-color="#08111D" .title-slide}
 
-<div class="kicker">EXTREME MATTER / 15 MIN</div>
+<div class="title-shell">
+  <div class="title-main">
+    <div class="kicker">EXTREME MATTER</div>
+    <h1>Title TBD</h1>
+    <div class="subtitle-line">极端条件下的毁伤物理：能量、激波、路径与材料响应</div>
 
-# Title TBD
+    <div class="hero-equation">
+      <span>ENERGY</span><span>→</span><span>WAVE</span><span>→</span><span>MATERIAL</span><span>→</span><span>FAILURE</span>
+    </div>
 
-<div class="subtitle-line">极端条件下的毁伤物理：能量、激波、路径与材料响应</div>
+    <div class="title-meta-grid">
+      <div class="meta-card">
+        <span class="meta-label">演讲人</span>
+        <span class="meta-value">[Your Name]</span>
+      </div>
+      <div class="meta-card">
+        <span class="meta-label">制作</span>
+        <span class="meta-value">ChatGPT</span>
+      </div>
+    </div>
+  </div>
 
-<div class="hero-equation">
-  <span>ENERGY</span><span>→</span><span>WAVE</span><span>→</span><span>MATERIAL</span><span>→</span><span>FAILURE</span>
+  <div class="title-side">
+    <div class="school-card">
+      <div class="school-kicker">学校与校徽占位</div>
+      <div class="school-name">[School Name]</div>
+      <img src="assets/images/fox-placeholder.png" alt="School logo placeholder" class="school-logo-placeholder">
+      <div class="school-note">临时校徽占位：可爱小狐狸</div>
+    </div>
+  </div>
 </div>
 
 ::: notes
-开场不要从“武器”讲起，而从问题讲起：能量释放之后，物质究竟经历了什么？
+标题页预留演讲人、制作人、学校名称与校徽位置。开场不要从“武器”讲起，而从问题讲起：能量释放之后，物质究竟经历了什么？
 
 [Sources]
 - Report.md Executive Summary: energy-coupling chain, L5-L21.
-:::
-
-## 能量去了哪里？ {.statement-slide}
-
-<div class="big-question">能量释放 ≠ 有效毁伤</div>
-
-<div class="one-line fragment">关键不是“总量”，而是能量如何进入材料、持续多久、走过哪条路径。</div>
-
-<div class="scalar-row fragment">
-  <span class="pill blue">Energy</span>
-  <span class="pill cyan">Pressure</span>
-  <span class="pill yellow">Impulse</span>
-  <span class="pill red">Failure</span>
-</div>
-
-::: notes
-本页建立第一个反直觉点：同样的总能量，不代表相同的材料响应。引出下一页的整体链条。
-
-[Sources]
-- Report.md Executive Summary: energy alone is a poor damage metric, L35-L35.
 :::
 
 ## 从能量到失效：一条跨尺度链 {.diagram-slide}
