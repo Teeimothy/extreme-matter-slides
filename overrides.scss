@@ -1,12 +1,15 @@
 /*-- scss:rules --*/
 :root {
-  --paper: #F4F1E8;
+  --paper: #F7F3EA;
+  --paper-2: #ECE7DD;
   --ink: #0D1824;
+  --ink-muted: #5E6876;
 }
 
-/* Light/dark split: a bright editorial header field over the core dark physics canvas. */
+/* Academic editorial base inspired by dtslides: large readable type, light header field, restrained utilities. */
 .reveal .slides section:not(.title-slide) {
-  background: linear-gradient(180deg, var(--paper) 0 25%, var(--bg) 25% 100%) !important;
+  background:
+    linear-gradient(180deg, var(--paper) 0 25%, var(--bg) 25% 100%) !important;
 }
 
 .reveal .slides section:not(.title-slide) > h1,
@@ -18,9 +21,7 @@
   padding-right: 250px;
 }
 
-.reveal .slides section:not(.title-slide) > h2::before {
-  background: var(--red) !important;
-}
+.reveal .slides section:not(.title-slide) > h2::before { background: var(--red) !important; }
 
 .reveal .slides section:not(.title-slide)::before {
   content: "";
@@ -34,13 +35,24 @@
   pointer-events: none;
 }
 
-/* Title slide: stronger asymmetric constructivist split. */
+.reveal .slides section:not(.title-slide)::after {
+  content: "";
+  position: absolute;
+  right: 72px;
+  top: calc(25% + 18px);
+  width: 130px;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(69,181,245,.95), rgba(245,219,77,.9), rgba(234,0,41,.7));
+  opacity: .92;
+  z-index: 1;
+}
+
+/* Title slide: asymmetric light/dark split while retaining the original theme colors. */
 .reveal .slides section.title-slide {
   background: linear-gradient(105deg, var(--bg) 0 66%, var(--paper) 66% 100%) !important;
 }
-
 .title-slide .school-card {
-  background: rgba(255,255,255,.76);
+  background: rgba(255,255,255,.78);
   border-color: rgba(13,24,36,.15);
   box-shadow: 0 20px 46px rgba(0,0,0,.14);
 }
@@ -60,7 +72,7 @@
   height: 54px;
   padding: 5px 12px 5px 7px;
   border: 1px solid rgba(13,24,36,.12);
-  background: rgba(255,255,255,.78);
+  background: rgba(255,255,255,.82);
   color: var(--ink);
   font-family: "IBM Plex Mono", ui-monospace, monospace;
   font-size: .34em;
@@ -83,20 +95,202 @@
   object-fit: contain;
   flex: 0 0 auto;
 }
-.global-school-brand span {
-  white-space: nowrap;
-  font-weight: 700;
+.global-school-brand span { white-space: nowrap; font-weight: 700; }
+
+/* dtslides-style font sizing utilities. */
+.largest { font-size: 1.9em !important; line-height: .95; }
+.larger { font-size: 1.5em !important; line-height: 1.05; }
+.large { font-size: 1.25em !important; line-height: 1.1; }
+.small { font-size: .80em !important; }
+.smaller { font-size: .64em !important; }
+.smallest { font-size: .512em !important; }
+.small-slide { font-size: 82%; }
+.tiny-slide { font-size: 58%; }
+.scrollable { overflow-y: auto !important; }
+
+.alert { color: var(--red-light); font-weight: 750; }
+.fg, .highlight { color: var(--yellow); font-weight: 750; }
+.note { color: var(--blue-light); }
+.warning { color: var(--red-light); }
+.badge {
+  display: inline-block;
+  padding: .12em .42em;
+  border: 1px solid rgba(245,219,77,.5);
+  background: rgba(245,219,77,.14);
+  color: var(--yellow);
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  font-size: .62em;
+  letter-spacing: .04em;
 }
 
-/* Force display math to read as typeset content, not code. */
+/* Compact process chain: smaller nodes, stronger causal relationship. */
+.chain-wrap {
+  position: relative;
+  display: grid !important;
+  grid-template-columns: repeat(7, minmax(0, 1fr)) !important;
+  gap: .42em !important;
+  align-items: stretch;
+  margin-top: 2.1em !important;
+  padding: .9em .85em 1.05em !important;
+  border: 1px solid rgba(135,148,165,.22);
+  background:
+    linear-gradient(135deg, rgba(69,181,245,.08), transparent 34%),
+    linear-gradient(0deg, rgba(8,17,29,.76), rgba(8,17,29,.76));
+}
+.chain-wrap::before {
+  content: "";
+  position: absolute;
+  left: 6.2%;
+  right: 6.2%;
+  top: 50%;
+  height: 3px;
+  background: linear-gradient(90deg, var(--blue-light), var(--yellow), var(--red-light));
+  opacity: .7;
+  transform: translateY(-50%);
+  z-index: 0;
+}
+.chain-node {
+  z-index: 2;
+  min-height: 118px !important;
+  padding: .72em .58em .64em !important;
+  border-radius: 8px !important;
+  background: rgba(16,27,41,.92) !important;
+  border: 1px solid rgba(200,209,220,.18) !important;
+  box-shadow: 0 12px 28px rgba(0,0,0,.16) !important;
+}
+.chain-node b {
+  display: block;
+  font-size: .50em !important;
+  line-height: 1.05;
+  color: var(--text);
+}
+.chain-node small {
+  display: block;
+  margin-top: .55em;
+  font-size: .30em !important;
+  line-height: 1.25;
+  color: var(--text-muted);
+}
+.chain-node::after {
+  content: "";
+  position: absolute;
+  right: -13px;
+  top: 50%;
+  width: 0;
+  height: 0;
+  border-top: 8px solid transparent;
+  border-bottom: 8px solid transparent;
+  border-left: 11px solid rgba(245,219,77,.75);
+  transform: translateY(-50%);
+  z-index: 5;
+}
+.chain-node:last-of-type::after { display: none; }
+.chain-arrow { display: none !important; }
+.chain-node.active-yellow { border-color: rgba(245,219,77,.58) !important; }
+.chain-node.active-red { border-color: rgba(234,0,41,.62) !important; }
+.scale-strip {
+  max-width: 1110px;
+  margin-top: .72em !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr);
+  gap: .45em;
+}
+.scale-strip span {
+  padding: .36em .58em;
+  border: 1px solid rgba(135,148,165,.2);
+  background: rgba(255,255,255,.045);
+  color: var(--text-muted);
+  font-size: .42em;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+/* Figure placeholders: visible planning spaces for future sourced illustrations. */
+.figure-slot {
+  position: absolute;
+  right: 72px;
+  bottom: 88px;
+  width: 32%;
+  height: 35%;
+  border: 1px dashed rgba(245,219,77,.48);
+  background:
+    linear-gradient(135deg, rgba(245,219,77,.10), transparent 38%),
+    linear-gradient(315deg, rgba(69,181,245,.12), transparent 42%),
+    rgba(16,27,41,.68);
+  z-index: 2;
+  color: var(--text-secondary);
+  padding: .7em;
+  box-sizing: border-box;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.figure-slot::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border: 1px solid rgba(135,148,165,.20);
+  pointer-events: none;
+}
+.figure-slot .figure-kicker {
+  font-size: .34em;
+  letter-spacing: .14em;
+  color: var(--yellow);
+}
+.figure-slot .figure-label {
+  font-size: .54em;
+  line-height: 1.1;
+  color: var(--text);
+  max-width: 85%;
+}
+.figure-slot .figure-note {
+  font-size: .30em;
+  color: var(--text-muted);
+}
+.has-figure-slot .shock-layout,
+.has-figure-slot .response-grid,
+.has-figure-slot .pt-layout,
+.has-figure-slot .regime-ladder {
+  width: 62%;
+  max-width: 950px;
+}
+.has-figure-slot .one-line,
+.has-figure-slot .statement { max-width: 62%; }
+
+/* Keep existing experiment slots as source-image placeholders, but make them more academic. */
+.frontier-grid {
+  gap: .7em !important;
+}
+.image-slot {
+  min-height: 270px !important;
+  border-radius: 6px !important;
+  border: 1px dashed rgba(135,148,165,.38) !important;
+  background:
+    linear-gradient(135deg, rgba(255,255,255,.06), transparent 42%),
+    rgba(16,27,41,.76) !important;
+}
+.image-slot span {
+  color: var(--yellow) !important;
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: .12em;
+}
+
+/* Math display fallback styling. */
 .reveal .math.display,
-.reveal mjx-container[display="true"] {
-  margin: .7em 0 !important;
+.reveal mjx-container[display="true"],
+.math-fallback {
+  margin: .65em 0 !important;
   padding: .36em .55em;
   border-left: 3px solid var(--blue-light);
   background: rgba(16,27,41,.70);
-  border-radius: 8px;
+  border-radius: 6px;
   color: var(--text);
+  max-width: 980px;
+}
+.reveal pre:has(code.language-tex),
+.reveal pre:has(code.language-latex) {
+  background: rgba(16,27,41,.70) !important;
+  border-left: 3px solid var(--blue-light);
 }
 
 @media (max-width: 900px) {
@@ -110,5 +304,25 @@
   .reveal .slides section:not(.title-slide) > h2 {
     padding-right: 0;
     max-width: 78%;
+  }
+  .chain-wrap { grid-template-columns: 1fr !important; }
+  .chain-wrap::before { display: none; }
+  .chain-node::after { display: none; }
+  .figure-slot {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: 100%;
+    height: 180px;
+    margin-top: .7em;
+  }
+  .has-figure-slot .shock-layout,
+  .has-figure-slot .response-grid,
+  .has-figure-slot .pt-layout,
+  .has-figure-slot .regime-ladder,
+  .has-figure-slot .one-line,
+  .has-figure-slot .statement {
+    width: 100%;
+    max-width: 100%;
   }
 }
