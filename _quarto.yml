@@ -1,0 +1,21 @@
+project:
+  type: default
+  output-dir: _site
+
+format:
+  revealjs:
+    theme: [default, custom.scss]
+    transition: fade
+    background-transition: fade
+    slide-number: c/t
+    controls: true
+    progress: true
+    center: false
+    width: 1600
+    height: 900
+    margin: 0.04
+    chalkboard: true
+    preview-links: false
+
+execute:
+  echo: false
